@@ -1,17 +1,24 @@
-version: '1'
+#도커 버전
+version: '3.8'
+#서비스들 (컨테이너 정보)
 services:
+  #nginx 설정
   nginx:
-    image: nginx:latest
-    restart: "on-failure"
-    ports:
-      - 80:80
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    image: nginx:latest #사용할 이미지
+    restart: "always"   #실패 시 항상 다시 시도
+    ports: 
+      - 80:80 #host: container
+    volumes: #host relative:container absolute 파일 경로 
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf 
       - ./frontend/file-app/build:/usr/share/nginx/html
+    #컨테이너 이름
     container_name: nginx-proxy
+    # nginx 시작 전 docker-server (컨테이너) 실행
     depends_on:
       - docker-server
+  #서버 설정 (express)
   docker-server:
+    #image를 빌드해서 사용, 경로의 Dockerfile로 빌드
     build:
       context: ./backend/
     ports:
@@ -20,7 +27,9 @@ services:
       - ./backend:/app
       - /app/node_modules
     container_name: docker-server
+    #환경 변수..
     environment:
       - NODE_ENV=development
+    #docker run의 -it 옵션과 동일한 효과
     stdin_open: true
     tty: true
