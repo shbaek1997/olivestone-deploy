@@ -4,7 +4,7 @@ version: '3.8'
 services:
   #nginx 설정
   nginx:
-    image: nginx:latest #사용할 이미지
+    image: nginx:1.23.2-alpine #사용할 이미지
     restart: "always"   #실패 시 항상 다시 시도
     ports: 
       - 80:80 #host: container
