@@ -2,7 +2,7 @@
 
 ## 서비스 소개
 
-- Docker-compose를 활용하여 빌드된 react-app과 express 서버를 nginx 환경에서 배포
+- Docker-compose를 활용하여 빌드된 react-app과 express 서버를 nginx 서버 환경에서 배포
 - 서비스 설명과 웹사이트 제작에 사용된 기술 정보는 아래의 두 링크를 참조
 - 서버 Repository는 이 [링크](http://swrnd.olivestonelab.com:32790/shbaek1997/project-upload-download-server/-/blob/develop/README.md)를 참조
 - 클라이언트 Repository는 이 [링크](http://swrnd.olivestonelab.com:32790/shbaek1997/project-upload-download/-/blob/develop/README.md)를 참조
